@@ -1,9 +1,6 @@
 defmodule Exmeal do
-  @moduledoc """
-  Exmeal keeps the contexts that define your domain
-  and business logic.
-
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate create_meal(params), to: Exmeal.Meals.Create, as: :call
+  defdelegate delete_meal(id), to: Exmeal.Meals.Delete, as: :call
+  defdelegate get_meal_by_id(id), to: Exmeal.Meals.Get, as: :by_id
+  defdelegate update_meal(params), to: Exmeal.Meals.Update, as: :call
 end
